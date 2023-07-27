@@ -1,9 +1,9 @@
 return {
-  --   { "shaunsingh/nord.nvim" },
-  --   {
-  --     "LazyVim/LazyVim",
-  --     opts = {
-  --       colorscheme = "nord",
-  --     },
+  -- { "shaunsingh/nord.nvim" },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "nord",
   --   },
+  -- },
 }
