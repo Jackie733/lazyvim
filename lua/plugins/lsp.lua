@@ -7,7 +7,7 @@ return {
     opts = {
       -- add your options that should be passed to the setup() function here
       position = "right",
-      width = 15,
+      width = 18,
     },
   },
 }
