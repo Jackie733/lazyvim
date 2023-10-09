@@ -11,7 +11,7 @@ return {
   -- correctly setup lspconfig
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "nvimtools/typescript.nvim" },
+    dependencies = { "jose-elias-alvarez/typescript.nvim" },
     opts = {
       -- make sure mason installs the server
       servers = {
@@ -58,7 +58,7 @@ return {
   { "jose-elias-alvarez/typescript.nvim" },
   -- null-ls.nvim
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/null-ls.nvim",
     opts = function(_, opts)
       table.insert(opts.sources, require("typescript.extensions.null-ls.code-actions"))
     end,
