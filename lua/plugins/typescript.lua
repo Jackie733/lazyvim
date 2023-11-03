@@ -1,73 +1,44 @@
+if true then
+  return {}
+end
 return {
-  -- add typescript to treesitter
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "typescript", "tsx" })
-      end
-    end,
-  },
-  -- correctly setup lspconfig
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = { "jose-elias-alvarez/typescript.nvim" },
-    opts = {
-      -- make sure mason installs the server
-      servers = {
-        ---@type lspconfig.options.tsserver
-        tsserver = {
+    "jose-elias-alvarez/typescript.nvim",
+    config = function()
+      require("typescript").setup({
+        server = {
+          on_attach = function(client, bufnr)
+            -- your other on_attach stuff here if you have any
+            -- ...
+            vim.lsp.buf.inlay_hint(bufnr, true)
+          end,
           settings = {
-            typescript = {
-              format = {
-                indentSize = vim.o.shiftwidth,
-                convertTabsToSpaces = vim.o.expandtab,
-                tabSize = vim.o.tabstop,
-              },
-            },
+            -- specify some or all of the following settings if you want to adjust the default behavior
             javascript = {
-              format = {
-                indentSize = vim.o.shiftwidth,
-                convertTabsToSpaces = vim.o.expandtab,
-                tabSize = vim.o.tabstop,
+              inlayHints = {
+                includeInlayEnumMemberValueHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayVariableTypeHints = true,
               },
             },
-            completions = {
-              completeFunctionCalls = true,
+            typescript = {
+              inlayHints = {
+                includeInlayEnumMemberValueHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayVariableTypeHints = true,
+              },
             },
           },
         },
-      },
-      setup = {
-        tsserver = function(_, opts)
-          require("lazyvim.util").lsp.on_attach(function(client, buffer)
-            if client.name == "tsserver" then
-            -- stylua: ignore
-            vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", { buffer = buffer, desc = "Organize Imports" })
-            -- stylua: ignore
-            vim.keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<CR>", { desc = "Rename File", buffer = buffer })
-            end
-          end)
-          require("typescript").setup({ server = opts })
-          return true
-        end,
-      },
-    },
-  },
-  -- typescript.nvim
-  { "jose-elias-alvarez/typescript.nvim" },
-  -- null-ls.nvim
-  {
-    "nvimtools/none-ls.nvim",
-    opts = function(_, opts)
-      table.insert(opts.sources, require("typescript.extensions.null-ls.code-actions"))
-    end,
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      table.insert(opts.ensure_installed, "js-debug-adapter")
+      })
     end,
   },
 }
