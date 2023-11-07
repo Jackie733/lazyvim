@@ -101,4 +101,21 @@ return {
       set_keymap("gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", "Go to references preview")
     end,
   },
+  {
+    "js-everts/cmp-tailwind-colors",
+    event = "LspAttach",
+    config = function()
+      require("cmp-tailwind-colors").setup({
+        enable_alpha = true, -- requires pumblend > 0.
+        format = function(itemColor)
+          return {
+            fg = itemColor,
+            bg = nil, -- or nil if you dont want a background color
+            text = "■", -- or use an icon
+          }
+        end,
+      })
+    end,
+  },
+  { "roobert/tailwindcss-colorizer-cmp.nvim", enabled = false },
 }
