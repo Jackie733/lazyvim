@@ -11,15 +11,6 @@ return {
     },
   },
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      table.insert(opts.ensure_installed, "json-lsp")
-      -- table.insert(opts.ensure_installed, "proselint")
-      -- table.insert(opts.ensure_installed, "write-good")
-      -- table.insert(opts.ensure_installed, "alex")
-    end,
-  },
-  {
     "nvimtools/none-ls.nvim",
     enabled = true,
     opts = function(_, opts)
