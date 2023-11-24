@@ -23,45 +23,6 @@ return {
     end,
   },
   {
-    "xlboy/swap-ternary.nvim",
-    keys = {
-      {
-        "<leader>sX",
-        function()
-          require("swap-ternary.controller").swap()
-        end,
-        desc = "Swap Ternary",
-      },
-    },
-    config = function() end,
-  },
-  {
-    "nvim-treesitter/playground",
-    cmd = "TSPlaygroundToggle",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        playground = {
-          enable = true,
-          disable = {},
-          updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-          persist_queries = false, -- Whether the query persists across vim sessions
-          keybindings = {
-            toggle_query_editor = "o",
-            toggle_hl_groups = "i",
-            toggle_injected_languages = "t",
-            toggle_anonymous_nodes = "a",
-            toggle_language_display = "I",
-            focus_language = "f",
-            unfocus_language = "F",
-            update = "R",
-            goto_node = "<cr>",
-            show_help = "?",
-          },
-        },
-      })
-    end,
-  },
-  {
     "nvim-treesitter/nvim-treesitter-context",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
@@ -83,30 +44,6 @@ return {
         zindex = 20, -- The Z-index of the context window
         on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
       })
-    end,
-  },
-  {
-    "HiPhish/rainbow-delimiters.nvim",
-    enabled = false,
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      local rainbow = require("rainbow-delimiters")
-
-      vim.g.rainbow_delimiters = {
-        query = {
-          [""] = "rainbow-delimiters",
-          lua = "rainbow-blocks",
-          html = "rainbow-tags",
-          javascript = "rainbow-delimiters-react",
-          javascriptreact = "rainbow-delimiters-react",
-          typescriptreact = "rainbow-delimiters-react",
-        },
-        strategy = {
-          [""] = rainbow.strategy["global"],
-          vim = rainbow.strategy["local"],
-        },
-      }
     end,
   },
   {
