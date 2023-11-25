@@ -1,14 +1,4 @@
 return {
-  -- { "shaunsingh/nord.nvim" },
-  -- {
-  --   "rmehri01/onenord.nvim",
-  -- },
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "onenord",
-  --   },
-  -- },
   {
     "projekt0n/github-nvim-theme",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
