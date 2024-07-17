@@ -30,16 +30,6 @@ return {
     end,
   },
   {
-    "theniceboy/joshuto.nvim",
-    enabled = false,
-    cmd = "Joshuto",
-    config = function()
-      vim.g.joshuto_floating_window_scaling_factor = 1.0
-      vim.g.joshuto_use_neovim_remote = 1
-      vim.g.joshuto_floating_window_winblend = 0
-    end,
-  },
-  {
     "nvim-neo-tree/neo-tree.nvim",
     cmd = "Neotree",
     event = "VeryLazy",
