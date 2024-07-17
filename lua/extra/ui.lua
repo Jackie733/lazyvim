@@ -15,12 +15,7 @@ return {
   },
   {
     "folke/which-key.nvim",
-    opts = {
-      window = {
-        border = float.border,
-        winblend = float.winblend,
-      },
-    },
+    opts = {},
   },
   {
     "telescope.nvim",
