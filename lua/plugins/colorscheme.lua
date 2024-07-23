@@ -1,4 +1,10 @@
 return {
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "nightfox",
+    },
+  },
   -- {
   --   "AlexvZyl/nordic.nvim",
   --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
@@ -15,10 +21,21 @@ return {
   --     require("onenord").load()
   --   end,
   -- },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {},
+  -- },
   {
-    "folke/tokyonight.nvim",
+    "EdenEast/nightfox.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
+    opts = {
+      options = {
+        -- use terminal background
+        transparent = true,
+      },
+    },
   },
 }
