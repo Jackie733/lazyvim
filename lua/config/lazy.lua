@@ -38,8 +38,8 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  -- install = { colorscheme = { "tokyonight" } },
-  install = { colorscheme = { "nightfox" } },
+  install = { colorscheme = { "tokyonight" } },
+  -- install = { colorscheme = { "nightfox" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {
