@@ -17,32 +17,6 @@ return {
     "folke/which-key.nvim",
     opts = {},
   },
-  {
-    "telescope.nvim",
-    opts = {
-      defaults = {
-        winblend = float.winblend,
-      },
-    },
-  },
-  -- coding
-  {
-    "nvim-cmp",
-    opts = function(_, opts)
-      local cmp = require("cmp")
-      local win = require("util.opts").win
-
-      local win_bordered = cmp.config.window.bordered({
-        border = float.border,
-        winhighlight = win.winhighlight,
-      })
-
-      opts.window = {
-        completion = win_bordered,
-        documentation = win_bordered,
-      }
-    end,
-  },
   -- lsp
   {
     "lspsaga.nvim",
