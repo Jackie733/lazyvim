@@ -1,13 +1,11 @@
 return {
   {
-    "NvChad/nvim-colorizer.lua",
+    "catgoose/nvim-colorizer.lua",
     event = "VeryLazy",
     enabled = true,
     opts = {
       filetypes = { "*" },
       user_default_options = {
-        RGB = true, -- #RGB hex codes
-        RRGGBB = true, -- #RRGGBB hex codes
         names = false, -- "Name" codes like Blue or blue
         RRGGBBAA = true, -- #RRGGBBAA hex codes
         AARRGGBB = true, -- 0xAARRGGBB hex codes
@@ -20,7 +18,6 @@ return {
         -- Available methods are false / true / "normal" / "lsp" / "both"
         -- True is same as normal
         tailwind = true,
-        sass = { enable = true },
         virtualtext = "■",
       },
       -- all the sub-options of filetypes apply to buftypes
