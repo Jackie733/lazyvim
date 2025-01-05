@@ -23,30 +23,27 @@ return {
   {
     "cshuaimin/ssr.nvim",
     keys = {
+      -- Search and replace in current buffer
       {
-        "<M-f>",
+        "<leader>bs", -- [b]uffer [s]tructural [s]earch and [r]eplace
         function()
           require("ssr").open()
         end,
-        desc = "Search and replace",
+        desc = "Structural Search and Replace",
       },
     },
-    -- Calling setup is optional.
-    config = function()
-      require("ssr").setup({
-        border = "rounded",
-        min_width = 50,
-        min_height = 5,
-        max_width = 120,
-        max_height = 25,
-        keymaps = {
-          close = "q",
-          next_match = "n",
-          prev_match = "N",
-          replace_confirm = "<cr>",
-          replace_all = "<leader><cr>",
-        },
-      })
-    end,
+    opts = {
+      min_width = 50,
+      min_height = 5,
+      max_width = 120,
+      max_height = 25,
+      keymaps = {
+        close = "q",
+        next_match = "n",
+        prev_match = "N",
+        replace_confirm = "<cr>",
+        replace_all = "<leader><cr>",
+      },
+    },
   },
 }
