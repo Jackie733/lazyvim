@@ -1,10 +1,14 @@
 return {
   "nvim-telescope/telescope-file-browser.nvim",
+  event = "VeryLazy",
+  dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+
   keys = {
+
     {
-      "<leader>sB",
+      "R",
       ":Telescope file_browser path=%:p:h=%:p:h<cr>",
-      desc = "Browse Files",
+      "File Browser",
     },
   },
   config = function()
