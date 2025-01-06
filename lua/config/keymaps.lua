@@ -5,10 +5,16 @@
 vim.keymap.set("n", "<C-j>", "6j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "6k", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>r", ":RunCode<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>rft", ":RunFile tab<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>rp", ":RunProject<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>rc", ":RunClose<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rr", function()
+  local filename = vim.fn.expand("%:p")
+  local filebase = vim.fn.fnamemodify(filename, ":t:r")
+
+  local compile_and_run_cmd = string.format(
+    ":split | :term g++ -std=c++14 -Wshadow -Wall -o %s %s -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG && ./%s",
+    filebase,
+    filename,
+    filebase
+  )
+
+  vim.cmd(compile_and_run_cmd)
+end, { noremap = true, silent = true, desc = "runCpp" })
