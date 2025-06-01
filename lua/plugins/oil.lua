@@ -1,5 +1,6 @@
 return {
   "stevearc/oil.nvim",
+  enabled = false, -- 禁用oil.nvim，使用neo-tree替代
   -- Optional dependencies
   dependencies = {
     "nvim-tree/nvim-web-devicons", -- For file icons, if you want them

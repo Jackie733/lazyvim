@@ -2,15 +2,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      -- use wildfire.nvim
+      -- use wildfire.nvim for incremental selection instead
       opts.incremental_selection = {
         enable = false,
-        keymaps = {
-          init_selection = "<CR>",
-          node_incremental = "<CR>",
-          scope_incremental = "<Tab>",
-          node_decremental = "<BS>",
-        },
       }
 
       opts.context_commentstring = {
